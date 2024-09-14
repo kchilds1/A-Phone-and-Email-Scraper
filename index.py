@@ -20,6 +20,13 @@ emailRegex = re.compile(r'''
 # something@something.com,something_something@something.com, something.something@something.com,something+something@something.com
 
     [a-zA-Z0-9_.+?]+ #name part-this can contain lowercase,uppercase, numbers, and the following symbols _.+?
-    @#@ symbol
-    [a-zA-Z0-9_.+?]+# Domain name part-this can contain lowercase,uppercase, numbers, and the following symbols _.+?              
+    @ #@ symbol
+    [a-zA-Z0-9_.+?]+ # Domain name part-this can contain lowercase,uppercase, numbers, and the following symbols _.+?              
     ''', re.VERBOSE)
+
+# Get the text off the clipboard
+text = pyperclip.paste() # whatever I have in my clipboard will be pasted to text
+
+# Extract the email/phone from this text
+extractedPhone = phoneRegex.findall(text)
+extractedEmail = emailRegex.findall(text)
