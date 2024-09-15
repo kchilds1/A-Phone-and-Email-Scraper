@@ -25,13 +25,17 @@ emailRegex = re.compile(r'''
     ''', re.VERBOSE)
 
 # Get the text off the clipboard
-text = 'Clinton Hernandez chernandez16@yahoo.com 303-606-9242 Sylvester Goodman sylvesterg@comcast.net 419-691-5429 Efren Daniels edaniels@comcast.net 740-228-1291 '
-#pyperclip.paste() # whatever I have in my clipboard will be pasted to text
+text = 'Clinton Hernandez chernandez16@yahoo.com 303-606-9242 Sylvester Goodman sylvesterg@comcast.net 419-691-5429 Efren Daniels edaniels@comcast.net 740-228-1291 ' # whatever I have in my clipboard will be pasted to text
 
+# pyperclip.paste()
 # Extract the email/phone from this text
 extractedPhone = phoneRegex.findall(text)
 extractedEmail = emailRegex.findall(text)
 
-print(extractedEmail)
-print(extractedPhone)
+allPhoneNumbers = []
+for phoneNumber in extractedPhone:
+    allPhoneNumbers.append(phoneNumber[0])
+print (allPhoneNumbers)
+# print(extractedEmail)
+# print(extractedPhone)
 
